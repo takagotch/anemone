@@ -17,9 +17,23 @@ def initialize(opts = {})
   create_schema
 end
 
+
+
 def get_hash_value(key)
   puts "get_hash_value"
   Digest::SHA1.hexdigest(key)
+end
+
+def has_key?(url)
+  key = get_hash_value(url)
+  result = @db.query(
+  )
+
+  if result.first['count(id)'] > 0
+    return true
+  else
+    return false
+  end
 end
 
 
