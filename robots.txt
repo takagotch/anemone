@@ -1,0 +1,17 @@
+User-agent: *
+#User-agent: Googlebot
+#User-agent: bingbot
+Disallow: /
+#Disallow:
+#Disallow: *.jpg
+#Disallow: *.png
+#Disallow: /cgi-bin/
+#Disallow: /imgages/
+#Disallow: /tmp/
+#Disallow: /private/
+#Disallow: /folder1/
+#Disallow: /folder2/
+
+Crawl-delay: 10
+
+
