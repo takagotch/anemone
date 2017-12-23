@@ -27,7 +27,7 @@ end
 def has_key?(url)
   key = get_hash_value(url)
   result = @db.query(
-  )
+  "SELECT count(id) FROM anemone_storage WHERE page_key = '#{key}'")
 
   if result.first['count(id)'] > 0
     return true
@@ -36,7 +36,27 @@ def has_key?(url)
   end
 end
 
+def [](url)
+  value = @db.query(
+  "SELECT data FROM anemone_storage WHERE page_key =
+  '#{get_hash_value(url)}'").first['data']
 
+  if value
+    Marshal.load(value)
+  end
+end
+
+def []=(url, value)
+  data = Marshal.dump(value)
+  key  = get_hash_value(url)
+  if has_key?(url)
+    @db.query("UPDATE anemone_storage SET page_data =
+      '#{data}' WHERE page_key = '#{key}'")
+  else
+    @db.query("INSERT INTO anemone_storage(
+      page_key, page_data) VALUES('#{key}', '#{data}')")
+  end
+end
 
 
 private
