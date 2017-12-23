@@ -17,6 +17,14 @@ def initialize(opts = {})
   create_schema
 end
 
+def get_hash_value(key)
+  puts "get_hash_value"
+  Digest::SHA1.hexdigest(key)
+end
+
+
+
+
 private
 
 def create_schema
