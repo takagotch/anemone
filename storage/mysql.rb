@@ -58,6 +58,10 @@ def []=(url, value)
   end
 end
 
+def self.MYSQL(opts = {})
+  require 'anemone/storage/mysql'
+  self::MySQL.new(opts)
+end
 
 private
 
