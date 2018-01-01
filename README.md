@@ -10,3 +10,5 @@ storage
   - osaka_cabinet.rb
 - storage.rb
 
+http://www.rubydoc.info/github/chriskite/anemone/Anemone/Storage/KyotoCabinet
+
